@@ -19,13 +19,16 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "LOGIN",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              "Login",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  color: Colors.white),
             ),
             SizedBox(height: size.height * 0.03),
-            Image.asset(
-              "assets/images/login.png",
-              height: size.height * 0.35,
+            SvgPicture.asset(
+              "assets/images/login.svg",
+              height: size.height * 0.4,
             ),
             SizedBox(height: size.height * 0.03),
             RoundedInputField(

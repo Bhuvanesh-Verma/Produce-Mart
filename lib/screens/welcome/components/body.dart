@@ -15,7 +15,10 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text("Welome to Produce Mart",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    color: kPrimaryColor)),
             SizedBox(
               height: size.height * 0.03,
             ),
