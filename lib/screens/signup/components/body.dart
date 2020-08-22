@@ -4,13 +4,13 @@ import 'package:fresh_mart/components/already_have_account_check.dart';
 import 'package:fresh_mart/components/rounded_button.dart';
 import 'package:fresh_mart/components/rounded_input_field.dart';
 import 'package:fresh_mart/components/rounded_password_field.dart';
-import 'package:fresh_mart/screens/signup/sign_up.dart';
+import 'package:fresh_mart/screens/login/login.dart';
+import 'package:fresh_mart/screens/signup/components/socila_icon.dart';
 
 import 'background.dart';
+import 'or_divider.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -20,7 +20,7 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "Login",
+              "Sign Up",
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
@@ -28,10 +28,9 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: size.height * 0.03),
             SvgPicture.asset(
-              "assets/images/login.svg",
-              height: size.height * 0.4,
+              "assets/images/signup.svg",
+              height: size.height * 0.3,
             ),
-            SizedBox(height: size.height * 0.03),
             RoundedInputField(
               hintText: "Your Email",
               onChanged: (value) {},
@@ -40,21 +39,40 @@ class Body extends StatelessWidget {
               onChanged: (value) {},
             ),
             RoundedButton(
-              text: "Login",
+              text: "Sign Up",
               press: () {},
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
+              login: false,
               press: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return SignUpScreen();
+                      return LoginScreen();
                     },
                   ),
                 );
               },
+            ),
+            OrDivider(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SocialIcon(
+                  iconSrc: "assets/images/facebook.svg",
+                  press: () {},
+                ),
+                SocialIcon(
+                  iconSrc: "assets/images/twitter.svg",
+                  press: () {},
+                ),
+                SocialIcon(
+                  iconSrc: "assets/images/google-plus.svg",
+                  press: () {},
+                ),
+              ],
             )
           ],
         ),
