@@ -4,6 +4,7 @@ import 'package:fresh_mart/components/loading.dart';
 import 'package:fresh_mart/contraints.dart';
 import 'package:fresh_mart/screens/wrapper.dart';
 import 'package:fresh_mart/services/auth.dart';
+import 'package:fresh_mart/services/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user.dart';
@@ -14,14 +15,15 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: Firebase.initializeApp(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          return StreamProvider<User>.value(
-            value: AuthService().user,
+          return AuthProvider(
+            auth: AuthService(),
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Fresh Mart',

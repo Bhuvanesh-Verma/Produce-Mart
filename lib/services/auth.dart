@@ -13,6 +13,12 @@ class AuthService {
     return user != null ? myuser.User(uid: user.uid) : null;
   }
 
+  @override
+  Future<String> currentUser() async {
+    final User user = await _auth.currentUser;
+    return user?.uid;
+  }
+
 // Sign in Anonymously
 
   Future signInAnon() async {
@@ -73,7 +79,7 @@ class AuthService {
       //c save data to cloud
       // await DatabaseService(uid: user.uid)
       //     .updateUserData('0', 'New Crew Member', 100);
-      // return _userFromFirebaseUser(user);
+      return _userFromFirebaseUser(user);
     } on FirebaseAuthException catch (e) {
       return e;
     } on PlatformException catch (e) {
